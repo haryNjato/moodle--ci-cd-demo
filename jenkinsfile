@@ -1,0 +1,12 @@
+pipeline {
+    agent any 
+
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Pipeline Jenkins démarré avec succès.'
+                echo 'Ceci est une démo CI/CD pour Moodle.'
+            }
+        }
+    }
+}
