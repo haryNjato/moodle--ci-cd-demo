@@ -3,12 +3,12 @@ pipeline {
     stages {
         stage('Déploiement Docker') {
             steps {
-                echo 'Mise à jour du conteneur Moodle...'
-                // On indique le chemin absolu vers votre docker-compose.yml
+                echo 'Mise à jour du conteneur Moodle via le fichier spécifique...'
+                // L'option -f permet de pointer vers le fichier exact
                 sh 'sudo docker-compose -f /home/ernest/moodle/docker-compose.yml up -d --build moodle_app'
                 
-                echo 'Purge du cache Moodle...'
-                sh 'sudo docker exec moodle_moodle_app_1 php /var/www/html/admin/cli/purge_caches.php || true'
+                echo 'Vérification du statut...'
+                sh 'sudo docker ps'
             }
         }
     }
