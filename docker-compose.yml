@@ -1,0 +1,35 @@
+version: '3.8'  # optionnel, peut être supprimé
+
+services:
+  db:
+    image: mariadb:10.11
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_DATABASE: moodle
+      MYSQL_USER: moodleuser
+      MYSQL_PASSWORD: moodlepass
+    volumes:
+      - db_data:/var/lib/mysql
+
+  moodle_app:
+    image: moodlehq/moodle-php-apache:8.2
+    ports:
+      - "8081:80"
+    volumes:
+      - /home/ernest/moodle:/var/www/html
+    depends_on:
+      - db
+
+  jenkins:
+    image: jenkins/jenkins:lts
+    restart: always
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - /home/ernest/jenkins:/var/jenkins_home
+
+volumes:
+  db_data:
+  jenkins_home:
