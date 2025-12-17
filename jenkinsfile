@@ -1,13 +1,20 @@
 pipeline {
     agent any
     stages {
+        stage('Récupération du code') {
+            steps {
+                checkout scm // Jenkins télécharge votre code GitHub ici
+            }
+        }
         stage('Déploiement Docker') {
             steps {
-                echo 'Lancement de Moodle avec le chemin absolu...'
-                // On force Jenkins à aller chercher le fichier dans votre dossier personnel
-                sh 'sudo docker-compose -f /home/ernest/moodle/docker-compose.yml up -d --build moodle_app'
-                
-                echo 'Vérification des conteneurs...'
+                echo 'Lancement des conteneurs depuis le Workspace...'
+                // Pas besoin de chemin absolu ici, car le fichier est dans le workspace
+                sh 'sudo docker-compose up -d --build moodle_app'
+            }
+        }
+        stage('Nettoyage') {
+            steps {
                 sh 'sudo docker ps'
             }
         }
