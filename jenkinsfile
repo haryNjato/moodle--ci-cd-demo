@@ -1,26 +1,16 @@
+
 pipeline {
     agent any
     stages {
-        stage('Récupération du code') {
+        stage('Déploiement Continu (Docker)') {
             steps {
-                // Télécharge le code depuis la branche main de votre dépôt
-                checkout scm
-            }
-        }
-        stage('Déploiement vers Moodle') {
-            steps {
-                echo 'Copie des fichiers en cours...'
-                // Synchronise le code GitHub avec le répertoire Apache
-             sh 'sudo rsync -av --exclude="config.php" . /var/www/html/moodle/'
+                echo 'Mise à jour du code et redémarrage du conteneur...'
+                // Docker-compose va détecter les fichiers modifiés via le volume
+                sh 'sudo docker-compose up -d moodle_app'
                 
-                echo 'Mise à jour des permissions...'
-                sh 'sudo chown -R www-data:www-data /var/www/html/moodle/'
-            }
-        }
-        stage('Nettoyage Cache') {
-            steps {
-                echo 'Purge des caches Moodle...'
-               sh 'sudo -u www-data php /var/www/html/moodle/admin/cli/purge_caches.php || true'
+                echo 'Purge du cache Moodle...'
+                // Exécute la purge DIRECTEMENT à l'intérieur du conteneur
+                sh 'sudo docker exec moodle_moodle_app_1 php /var/www/html/admin/cli/purge_caches.php || true'
             }
         }
     }
