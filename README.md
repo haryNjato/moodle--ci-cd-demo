@@ -1,8 +1,6 @@
-<<<<<<< HEAD
 # moodle--ci-cd-
 moodle deploye via jenkins et Docker
 Bonjour Sandra !
-=======
 # Moodle
 
 <p align="center"><a href="https://moodle.org" target="_blank" title="Moodle Website">
@@ -51,4 +49,3 @@ Moodle is provided freely as open source software, under version 3 of the GNU Ge
 [10]: https://moodle.com/partners
 [11]: https://moodle.com/cloud
 [12]: https://moodledev.io/general/license
->>>>>>> 982a10e9 (weekly release 5.2dev)
