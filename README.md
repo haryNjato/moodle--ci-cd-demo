@@ -1,7 +1,7 @@
 <<<<<<< HEAD
 # moodle--ci-cd-
 moodle deploye via jenkins et Docker
-Bonjour 
+Bonjour Sandra !
 =======
 # Moodle
 
