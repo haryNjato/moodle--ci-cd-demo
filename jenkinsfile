@@ -20,7 +20,7 @@ pipeline {
         stage('Nettoyage Cache') {
             steps {
                 echo 'Purge des caches Moodle...'
-                sh 'sudo -u www-data php /var/www/html/moodle/admin/cli/purge_caches.php'
+               sh 'sudo -u www-data php /var/www/html/moodle/admin/cli/purge_caches.php || true'
             }
         }
     }
