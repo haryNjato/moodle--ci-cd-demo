@@ -50,3 +50,5 @@ Moodle is provided freely as open source software, under version 3 of the GNU Ge
 [11]: https://moodle.com/cloud
 [12]: https://moodledev.io/general/license
 Liaison Jenkins-GitHub OK
+Liaison Jenkins-GitHub OK
+Liaison Jenkins-GitHub OK
