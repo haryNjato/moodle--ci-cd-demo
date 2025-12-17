@@ -1,15 +1,13 @@
-
 pipeline {
     agent any
     stages {
-        stage('Déploiement Continu (Docker)') {
+        stage('Déploiement Docker') {
             steps {
-                echo 'Mise à jour du code et redémarrage du conteneur...'
-                // Docker-compose va détecter les fichiers modifiés via le volume
-                sh 'sudo docker-compose up -d moodle_app'
+                echo 'Mise à jour du conteneur Moodle...'
+                // On indique le chemin absolu vers votre docker-compose.yml
+                sh 'sudo docker-compose -f /home/ernest/moodle/docker-compose.yml up -d --build moodle_app'
                 
                 echo 'Purge du cache Moodle...'
-                // Exécute la purge DIRECTEMENT à l'intérieur du conteneur
                 sh 'sudo docker exec moodle_moodle_app_1 php /var/www/html/admin/cli/purge_caches.php || true'
             }
         }
