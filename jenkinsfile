@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo 'Copie des fichiers en cours...'
                 // Synchronise le code GitHub avec le répertoire Apache
-                sh 'sudo rsync -av --delete --exclude="config.php" . /var/www/html/moodle/'
+             sh 'sudo rsync -av --exclude="config.php" . /var/www/html/moodle/'
                 
                 echo 'Mise à jour des permissions...'
                 sh 'sudo chown -R www-data:www-data /var/www/html/moodle/'
