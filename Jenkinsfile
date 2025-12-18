@@ -3,14 +3,15 @@ pipeline {
     stages {
         stage('Déploiement Docker') {
             steps {
-                echo 'Lancement de Moodle avec le chemin absolu...'
-                // Cette commande précise exactement où est le fichier yml
-                sh 'sudo docker-compose -f /home/ernest/moodle/docker-compose.yml up -d --build moodle_app'
+                echo 'Lancement de Moodle...'
+                // Suppression de sudo et utilisation du chemin relatif
+                sh 'docker compose up -d --build moodle_app'
             }
         }
-        stage('Nettoyage') {
+        stage('Vérification') {
             steps {
-                sh 'sudo docker ps'
+                // Suppression de sudo
+                sh 'docker ps'
             }
         }
     }
