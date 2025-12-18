@@ -3,14 +3,14 @@ pipeline {
     stages {
         stage('Déploiement Docker') {
             steps {
-                echo 'Lancement de Moodle...'
-                // Suppression de sudo et utilisation du chemin relatif
+                echo 'Lancement des conteneurs...'
+                // Retrait de sudo et du chemin absolu /home/ernest/
                 sh 'docker compose up -d --build moodle_app'
             }
         }
-        stage('Vérification') {
+        stage('Nettoyage') {
             steps {
-                // Suppression de sudo
+                // Retrait de sudo ici aussi
                 sh 'docker ps'
             }
         }
