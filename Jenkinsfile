@@ -4,7 +4,7 @@ pipeline {
         stage('Déploiement Docker') {
             steps {
                 echo 'Lancement des conteneurs...'
-                sh 'docker compose up -d --build moodle_app'
+                sh 'dooooooocker compose up -d --build moodle_app'
             }
         }
     }
