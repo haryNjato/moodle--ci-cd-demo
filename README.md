@@ -1,7 +1,6 @@
 # moodle--ci-cd-
 moodle deploye via jenkins et Docker
-Bonjour Sandra !
-test succès de deploiement n°1
+tester cette chose !
 # Moodle
 ### test pipeline ok 
 <p align="center"><a href="https://moodle.org" target="_blank" title="Moodle Website">
