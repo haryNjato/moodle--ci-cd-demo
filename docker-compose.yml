@@ -16,7 +16,7 @@ services:
     image: moodlehq/moodle-php-apache:8.2
     restart: always
     ports:
-      - "8081:80"
+      - "8082:80"
     volumes:
       - /home/ernest/moodle:/var/www/html
     depends_on:
