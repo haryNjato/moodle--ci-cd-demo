@@ -1,11 +1,19 @@
 pipeline {
     agent any
+
     stages {
+        stage('Checkout') {
+            steps {
+                checkout scm
+            }
+        }
+
         stage('Déploiement Docker') {
             steps {
-                echo 'Lancement des conteneurs...'
-                // On utilise le chemin complet ou on s'assure que docker est accessible
-                sh 'docker compose up -d --build'
+                echo 'Mise à jour intelligente des conteneurs...'
+                // On utilise uniquement 'up' avec --build. 
+                // Docker va redémarrer seulement ce qui est nécessaire sans couper Jenkins.
+                sh 'docker compose up -d --build --remove-orphans'
             }
         }
     }
