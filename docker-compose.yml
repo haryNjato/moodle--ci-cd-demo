@@ -1,4 +1,4 @@
-services:
+#services:
   db:
     image: mariadb:10.11
     restart: always
