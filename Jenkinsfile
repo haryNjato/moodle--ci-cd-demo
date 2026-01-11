@@ -11,7 +11,7 @@ pipeline {
 
         stage('Déploiement Docker sécurisé') {
             steps {
-                echo 'Déploiement Moodle (sans perte de données)'
+                echo 'Arrêt propre puis redémarrage de Moodle'
                 sh '''
                 docker compose -p moodle down || true
                 docker compose -p moodle up -d --build
