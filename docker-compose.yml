@@ -1,24 +1,27 @@
-#services:
+services:
   db:
     image: mariadb:10.11
+    container_name: moodle-db
     restart: always
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: moodle
-      MYSQL_USER: moodleuser
-      MYSQL_PASSWORD: moodlepass
+      - MYSQL_ROOT_PASSWORD=rootpassword
+      - MYSQL_DATABASE=moodle
+      - MYSQL_USER=moodleuser
+      - MYSQL_PASSWORD=moodlepass
     volumes:
-      - db_data:/var/lib/mysql
+      - moodle_db_data:/var/lib/mysql
 
   moodle_app:
     image: moodlehq/moodle-php-apache:8.2
+    container_name: moodle-app
     restart: always
     ports:
       - "8081:80"
     volumes:
       - /home/ernest/moodle:/var/www/html
+      - /home/ernest/moodledata:/var/www/moodledata
     depends_on:
       - db
 
 volumes:
-  db_data:
+  moodle_db_data:
