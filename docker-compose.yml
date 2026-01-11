@@ -1,7 +1,7 @@
 services:
   db:
     image: mariadb:10.11
-    container_name: moodle-db
+    container_name: moodle-db-jenkins
     restart: always
     environment:
       - MYSQL_ROOT_PASSWORD=rootpassword
@@ -13,7 +13,7 @@ services:
 
   moodle_app:
     image: moodlehq/moodle-php-apache:8.2
-    container_name: moodle-app
+    container_name: moodle-app-jenkins
     restart: always
     ports:
       - "8081:80"
