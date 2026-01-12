@@ -1,5 +1,5 @@
 # moodle--ci-cd-
-today is good !
+Bonjour
 Aujourdhui c'est 12/10/2026.9🕙
 # Moodle
 ### test pipeline ok 
