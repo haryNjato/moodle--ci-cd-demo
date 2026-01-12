@@ -14,7 +14,7 @@ pipeline {
                 echo 'Arrêt propre puis redémarrage de Moodle'
                 sh '''
                 docker compose -p moodle down || true
-                docker compose -p moodle up -d --build
+                docker  -p moodle up -d --build
                 '''
             }
         }
