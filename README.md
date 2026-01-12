@@ -1,6 +1,7 @@
 # moodle--ci-cd-
 Bonjour
 Aujourdhui c'est 12/10/2026.9🕙
+à bientot
 # Moodle
 ### test pipeline ok 
 <p align="center"><a href="https://moodle.org" target="_blank" title="Moodle Website">
