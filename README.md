@@ -52,3 +52,4 @@ Moodle is provided freely as open source software, under version 3 of the GNU Ge
 Liaison Jenkins-GitHub OK
 Liaison Jenkins-GitHub OK
 Liaison Jenkins-GitHub OK
+# Test webhook CI/CD
