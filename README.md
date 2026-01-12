@@ -1,6 +1,6 @@
 # moodle--ci-cd-
 today is good !
-fait coucou à tout le monde.
+Aujourdhui c'est 12/10/2026
 # Moodle
 ### test pipeline ok 
 <p align="center"><a href="https://moodle.org" target="_blank" title="Moodle Website">
