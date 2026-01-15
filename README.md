@@ -1,7 +1,5 @@
 # moodle--ci-cd-
-Bonjour
-je vous salut tout le monde 
-c'est 4heure 
+## Salut
 # Moodle
 ### test pipeline ok 
 <p align="center"><a href="https://moodle.org" target="_blank" title="Moodle Website">
